@@ -1,0 +1,2 @@
+- To start voice recognition => startVoiceCommand()
+- To Stop voice recognition => stop()
