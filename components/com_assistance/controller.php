@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_newsfeeds
+ * @subpackage  com_assistance
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,14 +10,14 @@
 defined('_JEXEC') or die;
 
 /**
- * Newsfeeds Component Controller
+ * assistance Component Controller
  *
  * @since  1.5
  */
-class NewsfeedsController extends JControllerLegacy
+class AssistanceController extends JControllerLegacy
 {
 	/**
-	 * Method to show a newsfeeds view
+	 * Method to show a assistance view
 	 *
 	 * @param   boolean  $cachable   If true, the view output will be cached
 	 * @param   array    $urlparams  An array of safe URL parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
