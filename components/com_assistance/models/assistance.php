@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_newsfeeds
+ * @subpackage  com_assistance
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -12,11 +12,11 @@ defined('_JEXEC') or die;
 use Joomla\Registry\Registry;
 
 /**
- * Newsfeeds Component Newsfeed Model
+ * Assistance Component Newsfeed Model
  *
  * @since  1.5
  */
-class NewsfeedsModelNewsfeed extends JModelItem
+class AssistanceModelNewsfeed extends JModelItem
 {
 	/**
 	 * Model context string.
@@ -24,7 +24,7 @@ class NewsfeedsModelNewsfeed extends JModelItem
 	 * @var		string
 	 * @since   1.6
 	 */
-	protected $_context = 'com_newsfeeds.newsfeed';
+	protected $_context = 'com_assistance.newsfeed';
 
 	/**
 	 * Method to auto-populate the model state.
@@ -52,7 +52,7 @@ class NewsfeedsModelNewsfeed extends JModelItem
 
 		$user = JFactory::getUser();
 
-		if ((!$user->authorise('core.edit.state', 'com_newsfeeds')) && (!$user->authorise('core.edit', 'com_newsfeeds')))
+		if ((!$user->authorise('core.edit.state', 'com_assistance')) && (!$user->authorise('core.edit', 'com_assistance')))
 		{
 			$this->setState('filter.published', 1);
 			$this->setState('filter.archived', 2);
@@ -84,7 +84,7 @@ class NewsfeedsModelNewsfeed extends JModelItem
 				$db = $this->getDbo();
 				$query = $db->getQuery(true)
 					->select($this->getState('item.select', 'a.*'))
-					->from('#__newsfeeds AS a');
+					->from('#__assistance AS a');
 
 				// Join on category table.
 				$query->select('c.title AS category_title, c.alias AS category_alias, c.access AS category_access')
@@ -184,7 +184,7 @@ class NewsfeedsModelNewsfeed extends JModelItem
 		{
 			$pk = (!empty($pk)) ? $pk : (int) $this->getState('newsfeed.id');
 
-			$table = JTable::getInstance('Newsfeed', 'NewsfeedsTable');
+			$table = JTable::getInstance('Newsfeed', 'AssistanceTable');
 			$table->load($pk);
 			$table->hit($pk);
 		}

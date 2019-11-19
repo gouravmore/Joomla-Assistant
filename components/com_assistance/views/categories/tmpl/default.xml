@@ -18,7 +18,7 @@
 				type="category"
 				label="JGLOBAL_FIELD_CATEGORIES_CHOOSE_CATEGORY_LABEL"
 				description="JGLOBAL_FIELD_CATEGORIES_CHOOSE_CATEGORY_DESC"
-				extension="com_newsfeeds"
+				extension="com_assistance"
 				show_root="true"
 				required="true"
 			/>

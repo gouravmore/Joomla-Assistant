@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_newsfeeds
+ * @subpackage  com_assistance
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,12 +10,12 @@
 defined('_JEXEC') or die;
 
 /**
- * Legacy routing rules class from com_newsfeeds
+ * Legacy routing rules class from com_assistance
  *
  * @since       3.6
  * @deprecated  4.0
  */
-class NewsfeedsRouterRulesLegacy implements JComponentRouterRulesInterface
+class AssistanceRouterRulesLegacy implements JComponentRouterRulesInterface
 {
 	/**
 	 * Constructor for this legacy router
@@ -31,7 +31,7 @@ class NewsfeedsRouterRulesLegacy implements JComponentRouterRulesInterface
 	}
 
 	/**
-	 * Preprocess the route for the com_newsfeeds component
+	 * Preprocess the route for the com_assistance component
 	 *
 	 * @param   array  &$query  An array of URL arguments
 	 *
@@ -45,7 +45,7 @@ class NewsfeedsRouterRulesLegacy implements JComponentRouterRulesInterface
 	}
 
 	/**
-	 * Build the route for the com_newsfeeds component
+	 * Build the route for the com_assistance component
 	 *
 	 * @param   array  &$query     An array of URL arguments
 	 * @param   array  &$segments  The URL arguments to use to assemble the subsequent URL.
@@ -58,7 +58,7 @@ class NewsfeedsRouterRulesLegacy implements JComponentRouterRulesInterface
 	public function build(&$query, &$segments)
 	{
 		// Get a menu item based on Itemid or currently active
-		$params = JComponentHelper::getParams('com_newsfeeds');
+		$params = JComponentHelper::getParams('com_assistance');
 		$advanced = $params->get('sef_advanced_link', 0);
 
 		if (empty($query['Itemid']))
@@ -77,7 +77,7 @@ class NewsfeedsRouterRulesLegacy implements JComponentRouterRulesInterface
 		{
 			$view = $query['view'];
 
-			if (empty($menuItem) || $menuItem->component !== 'com_newsfeeds' || empty($query['Itemid']))
+			if (empty($menuItem) || $menuItem->component !== 'com_assistance' || empty($query['Itemid']))
 			{
 				$segments[] = $query['view'];
 			}
@@ -107,7 +107,7 @@ class NewsfeedsRouterRulesLegacy implements JComponentRouterRulesInterface
 				}
 
 				$menuCatid = $mId;
-				$categories = JCategories::getInstance('Newsfeeds');
+				$categories = JCategories::getInstance('Assistance');
 				$category = $categories->get($catid);
 
 				if ($category)
@@ -201,13 +201,13 @@ class NewsfeedsRouterRulesLegacy implements JComponentRouterRulesInterface
 
 		// Get the active menu item.
 		$item	= $this->router->menu->getActive();
-		$params = JComponentHelper::getParams('com_newsfeeds');
+		$params = JComponentHelper::getParams('com_assistance');
 		$advanced = $params->get('sef_advanced_link', 0);
 
 		// Count route segments
 		$count = count($segments);
 
-		// Standard routing for newsfeeds.
+		// Standard routing for assistance.
 		if (!isset($item))
 		{
 			$vars['view'] = $segments[0];
@@ -218,7 +218,7 @@ class NewsfeedsRouterRulesLegacy implements JComponentRouterRulesInterface
 
 		// From the categories view, we can only jump to a category.
 		$id = (isset($item->query['id']) && $item->query['id'] > 1) ? $item->query['id'] : 'root';
-		$categories = JCategories::getInstance('Newsfeeds')->get($id)->getChildren();
+		$categories = JCategories::getInstance('Assistance')->get($id)->getChildren();
 		$vars['catid'] = $id;
 		$vars['id'] = $id;
 		$found = 0;
@@ -247,7 +247,7 @@ class NewsfeedsRouterRulesLegacy implements JComponentRouterRulesInterface
 					$db = JFactory::getDbo();
 					$query = $db->getQuery(true)
 						->select($db->quoteName('id'))
-						->from('#__newsfeeds')
+						->from('#__assistance')
 						->where($db->quoteName('catid') . ' = ' . (int) $vars['catid'])
 						->where($db->quoteName('alias') . ' = ' . $db->quote($segment));
 					$db->setQuery($query);

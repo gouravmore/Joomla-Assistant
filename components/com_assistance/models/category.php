@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_newsfeeds
+ * @subpackage  com_assistance
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -12,11 +12,11 @@ defined('_JEXEC') or die;
 use Joomla\Registry\Registry;
 
 /**
- * Newsfeeds Component Category Model
+ * Assistance Component Category Model
  *
  * @since  1.5
  */
-class NewsfeedsModelCategory extends JModelList
+class AssistanceModelCategory extends JModelList
 {
 	/**
 	 * Category items data
@@ -97,7 +97,7 @@ class NewsfeedsModelCategory extends JModelList
 			if ($this->getState('load_tags', true))
 			{
 				$item->tags = new JHelperTags;
-				$item->tags->getItemTags('com_newsfeeds.newsfeed', $item->id);
+				$item->tags->getItemTags('com_assistance.newsfeed', $item->id);
 			}
 		}
 
@@ -122,7 +122,7 @@ class NewsfeedsModelCategory extends JModelList
 
 		// Select required fields from the categories.
 		$query->select($this->getState('list.select', 'a.*'))
-			->from($db->quoteName('#__newsfeeds') . ' AS a')
+			->from($db->quoteName('#__assistance') . ' AS a')
 			->where('a.access IN (' . $groups . ')');
 
 		// Filter by category.
@@ -194,7 +194,7 @@ class NewsfeedsModelCategory extends JModelList
 	protected function populateState($ordering = null, $direction = null)
 	{
 		$app = JFactory::getApplication();
-		$params = JComponentHelper::getParams('com_newsfeeds');
+		$params = JComponentHelper::getParams('com_assistance');
 
 		// List state information
 		$limit = $app->getUserStateFromRequest('global.list.limit', 'limit', $app->get('list_limit'), 'uint');
@@ -229,7 +229,7 @@ class NewsfeedsModelCategory extends JModelList
 
 		$user = JFactory::getUser();
 
-		if ((!$user->authorise('core.edit.state', 'com_newsfeeds')) && (!$user->authorise('core.edit', 'com_newsfeeds')))
+		if ((!$user->authorise('core.edit.state', 'com_assistance')) && (!$user->authorise('core.edit', 'com_assistance')))
 		{
 			// Limit to published for people who can't edit or edit.state.
 			$this->setState('filter.published', 1);
@@ -267,7 +267,7 @@ class NewsfeedsModelCategory extends JModelList
 
 			$options = array();
 			$options['countItems'] = $params->get('show_cat_items', 1) || $params->get('show_empty_categories', 0);
-			$categories = JCategories::getInstance('Newsfeeds', $options);
+			$categories = JCategories::getInstance('Assistance', $options);
 			$this->_item = $categories->get($this->getState('category.id', 'root'));
 
 			if (is_object($this->_item))

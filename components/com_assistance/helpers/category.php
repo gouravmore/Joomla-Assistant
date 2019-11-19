@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_newsfeeds
+ * @subpackage  com_assistance
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.6
  */
-class NewsfeedsCategories extends JCategories
+class AssistanceCategories extends JCategories
 {
 	/**
 	 * Constructor
@@ -23,8 +23,8 @@ class NewsfeedsCategories extends JCategories
 	 */
 	public function __construct($options = array())
 	{
-		$options['table'] = '#__newsfeeds';
-		$options['extension'] = 'com_newsfeeds';
+		$options['table'] = '#__assistance';
+		$options['extension'] = 'com_assistance';
 		$options['statefield'] = 'published';
 		parent::__construct($options);
 	}

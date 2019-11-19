@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_newsfeeds
+ * @subpackage  com_assistance
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -9,16 +9,16 @@
 
 defined('_JEXEC') or die;
 
-JLoader::register('NewsfeedsHelper', JPATH_ADMINISTRATOR . '/components/com_newsfeeds/helpers/newsfeeds.php');
-JLoader::register('NewsfeedsHelperRoute', JPATH_SITE . '/components/com_newsfeeds/helpers/route.php');
+JLoader::register('AssistanceHelper', JPATH_ADMINISTRATOR . '/components/com_assistance/helpers/assistance.php');
+JLoader::register('AssistanceHelperRoute', JPATH_SITE . '/components/com_assistance/helpers/route.php');
 JLoader::register('CategoryHelperAssociation', JPATH_ADMINISTRATOR . '/components/com_categories/helpers/association.php');
 
 /**
- * Newsfeeds Component Association Helper
+ * Assistance Component Association Helper
  *
  * @since  3.0
  */
-abstract class NewsfeedsHelperAssociation extends CategoryHelperAssociation
+abstract class AssistanceHelperAssociation extends CategoryHelperAssociation
 {
 	/**
 	 * Method to get the associations for a given item
@@ -40,13 +40,13 @@ abstract class NewsfeedsHelperAssociation extends CategoryHelperAssociation
 		{
 			if ($id)
 			{
-				$associations = JLanguageAssociations::getAssociations('com_newsfeeds', '#__newsfeeds', 'com_newsfeeds.item', $id);
+				$associations = JLanguageAssociations::getAssociations('com_assistance', '#__assistance', 'com_assistance.item', $id);
 
 				$return = array();
 
 				foreach ($associations as $tag => $item)
 				{
-					$return[$tag] = NewsfeedsHelperRoute::getNewsfeedRoute($item->id, (int) $item->catid, $item->language);
+					$return[$tag] = AssistanceHelperRoute::getNewsfeedRoute($item->id, (int) $item->catid, $item->language);
 				}
 
 				return $return;
@@ -55,7 +55,7 @@ abstract class NewsfeedsHelperAssociation extends CategoryHelperAssociation
 
 		if ($view === 'category' || $view === 'categories')
 		{
-			return self::getCategoryAssociations($id, 'com_newsfeeds');
+			return self::getCategoryAssociations($id, 'com_assistance');
 		}
 
 		return array();

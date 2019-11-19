@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_newsfeeds
+ * @subpackage  com_assistance
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,23 +10,23 @@
 defined('_JEXEC') or die;
 
 /**
- * Routing class from com_newsfeeds
+ * Routing class from com_assistance
  *
  * @since  3.3
  */
-class NewsfeedsRouter extends JComponentRouterView
+class AssistanceRouter extends JComponentRouterView
 {
 	protected $noIDs = false;
 
 	/**
-	 * Newsfeeds Component router constructor
+	 * Assistance Component router constructor
 	 *
 	 * @param   JApplicationCms  $app   The application object
 	 * @param   JMenu            $menu  The menu object to work with
 	 */
 	public function __construct($app = null, $menu = null)
 	{
-		$params = JComponentHelper::getParams('com_newsfeeds');
+		$params = JComponentHelper::getParams('com_assistance');
 		$this->noIDs = (bool) $params->get('sef_ids');
 		$categories = new JComponentRouterViewconfiguration('categories');
 		$categories->setKey('id');
@@ -49,8 +49,8 @@ class NewsfeedsRouter extends JComponentRouterView
 		}
 		else
 		{
-			JLoader::register('NewsfeedsRouterRulesLegacy', __DIR__ . '/helpers/legacyrouter.php');
-			$this->attachRule(new NewsfeedsRouterRulesLegacy($this));
+			JLoader::register('AssistanceRouterRulesLegacy', __DIR__ . '/helpers/legacyrouter.php');
+			$this->attachRule(new AssistanceRouterRulesLegacy($this));
 		}
 	}
 
@@ -113,7 +113,7 @@ class NewsfeedsRouter extends JComponentRouterView
 			$db = JFactory::getDbo();
 			$dbquery = $db->getQuery(true);
 			$dbquery->select($dbquery->qn('alias'))
-				->from($dbquery->qn('#__newsfeeds'))
+				->from($dbquery->qn('#__assistance'))
 				->where('id = ' . $dbquery->q((int) $id));
 			$db->setQuery($dbquery);
 
@@ -197,7 +197,7 @@ class NewsfeedsRouter extends JComponentRouterView
 			$db = JFactory::getDbo();
 			$dbquery = $db->getQuery(true);
 			$dbquery->select($dbquery->qn('id'))
-				->from($dbquery->qn('#__newsfeeds'))
+				->from($dbquery->qn('#__assistance'))
 				->where('alias = ' . $dbquery->q($segment))
 				->where('catid = ' . $dbquery->q($query['id']));
 			$db->setQuery($dbquery);
@@ -210,7 +210,7 @@ class NewsfeedsRouter extends JComponentRouterView
 }
 
 /**
- * newsfeedsBuildRoute
+ * assistanceBuildRoute
  *
  * These functions are proxys for the new router interface
  * for old SEF extensions.
@@ -221,16 +221,16 @@ class NewsfeedsRouter extends JComponentRouterView
  *
  * @deprecated  4.0  Use Class based routers instead
  */
-function newsfeedsBuildRoute(&$query)
+function assistanceBuildRoute(&$query)
 {
 	$app = JFactory::getApplication();
-	$router = new NewsfeedsRouter($app, $app->getMenu());
+	$router = new AssistanceRouter($app, $app->getMenu());
 
 	return $router->build($query);
 }
 
 /**
- * newsfeedsParseRoute
+ * assistanceParseRoute
  *
  * @param   array  $segments  The segments of the URL to parse.
  *
@@ -238,10 +238,10 @@ function newsfeedsBuildRoute(&$query)
  *
  * @deprecated  4.0  Use Class based routers instead
  */
-function newsfeedsParseRoute($segments)
+function assistanceParseRoute($segments)
 {
 	$app = JFactory::getApplication();
-	$router = new NewsfeedsRouter($app, $app->getMenu());
+	$router = new AssistanceRouter($app, $app->getMenu());
 
 	return $router->parse($segments);
 }

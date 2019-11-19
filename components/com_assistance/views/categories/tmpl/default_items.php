@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_newsfeeds
+ * @subpackage  com_assistance
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -22,7 +22,7 @@ JHtml::_('bootstrap.tooltip');
 			<div<?php echo $class; ?>>
 				<?php $class = ''; ?>
 				<h3 class="page-header item-title">
-					<a href="<?php echo JRoute::_(NewsfeedsHelperRoute::getCategoryRoute($item->id, $item->language)); ?>">
+					<a href="<?php echo JRoute::_(AssistanceHelperRoute::getCategoryRoute($item->id, $item->language)); ?>">
 						<?php echo $this->escape($item->title); ?>
 					</a>
 					<?php if ($this->params->get('show_cat_items_cat') == 1) : ?>
@@ -41,7 +41,7 @@ JHtml::_('bootstrap.tooltip');
 				<?php if ($this->params->get('show_subcat_desc_cat') == 1) : ?>
 					<?php if ($item->description) : ?>
 						<div class="category-desc">
-							<?php echo JHtml::_('content.prepare', $item->description, '', 'com_newsfeeds.categories'); ?>
+							<?php echo JHtml::_('content.prepare', $item->description, '', 'com_assistance.categories'); ?>
 						</div>
 					<?php endif; ?>
 				<?php endif; ?>

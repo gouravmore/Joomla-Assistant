@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_newsfeeds
+ * @subpackage  com_assistance
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -24,7 +24,7 @@ $pageClass = $this->params->get('pageclass_sfx');
 	<?php endif; ?>
 	<?php if ($this->params->get('show_category_title', 1)) : ?>
 		<h2>
-			<?php echo JHtml::_('content.prepare', $this->category->title, '', 'com_newsfeeds.category.title'); ?>
+			<?php echo JHtml::_('content.prepare', $this->category->title, '', 'com_assistance.category.title'); ?>
 		</h2>
 	<?php endif; ?>
 	<?php if ($this->params->get('show_tags', 1) && !empty($this->category->tags->itemTags)) : ?>
@@ -37,7 +37,7 @@ $pageClass = $this->params->get('pageclass_sfx');
 				<img src="<?php echo $this->category->getParams()->get('image'); ?>" />
 			<?php endif; ?>
 			<?php if ($this->params->get('show_description') && $this->category->description) : ?>
-				<?php echo JHtml::_('content.prepare', $this->category->description, '', 'com_newsfeeds.category'); ?>
+				<?php echo JHtml::_('content.prepare', $this->category->description, '', 'com_assistance.category'); ?>
 			<?php endif; ?>
 			<div class="clr"></div>
 		</div>

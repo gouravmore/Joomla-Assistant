@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_newsfeeds
+ * @subpackage  com_assistance
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,11 +10,11 @@
 defined('_JEXEC') or die;
 
 /**
- * Newsfeeds Component Route Helper
+ * Assistance Component Route Helper
  *
  * @since  1.5
  */
-abstract class NewsfeedsHelperRoute
+abstract class AssistanceHelperRoute
 {
 	/**
 	 * getNewsfeedRoute
@@ -28,7 +28,7 @@ abstract class NewsfeedsHelperRoute
 	public static function getNewsfeedRoute($id, $catid, $language = 0)
 	{
 		// Create the link
-		$link = 'index.php?option=com_newsfeeds&view=newsfeed&id=' . $id;
+		$link = 'index.php?option=com_assistance&view=newsfeed&id=' . $id;
 
 		if ((int) $catid > 1)
 		{
@@ -69,7 +69,7 @@ abstract class NewsfeedsHelperRoute
 		else
 		{
 			// Create the link
-			$link = 'index.php?option=com_newsfeeds&view=category&id=' . $id;
+			$link = 'index.php?option=com_assistance&view=category&id=' . $id;
 
 			if ($language && $language !== '*' && JLanguageMultilang::isEnabled())
 			{

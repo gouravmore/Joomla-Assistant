@@ -14,14 +14,14 @@
 		addfieldpath="/administrator/components/com_categories/models/fields"
 	>
 		<fieldset name="request"
-			addfieldpath="/administrator/components/com_newsfeeds/models/fields"
+			addfieldpath="/administrator/components/com_assistance/models/fields"
 		 >
 			<field
 				name="id"
 				type="modal_category"
 				label="JCATEGORY"
 				description="COM_NEWSFEEDS_FIELD_SELECT_CATEGORY_DESC"
-				extension="com_newsfeeds"
+				extension="com_assistance"
 				required="true"
 				select="true"
 				new="true"

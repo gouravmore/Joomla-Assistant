@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_newsfeeds
+ * @subpackage  com_assistance
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -12,11 +12,11 @@ defined('_JEXEC') or die;
 use Joomla\Registry\Registry;
 
 /**
- * HTML View class for the Newsfeeds component
+ * HTML View class for the Assistance component
  *
  * @since  1.0
  */
-class NewsfeedsViewCategory extends JViewCategory
+class AssistanceViewCategory extends JViewCategory
 {
 	/**
 	 * @var    string  Default title to use for page title
@@ -28,7 +28,7 @@ class NewsfeedsViewCategory extends JViewCategory
 	 * @var    string  The name of the extension for the category
 	 * @since  3.2
 	 */
-	protected $extension = 'com_newsfeeds';
+	protected $extension = 'com_assistance';
 
 	/**
 	 * @var    string  The name of the view to link individual items to
@@ -75,14 +75,14 @@ class NewsfeedsViewCategory extends JViewCategory
 		$menu = $this->menu;
 		$id = (int) @$menu->query['id'];
 
-		if ($menu && ($menu->query['option'] !== 'com_newsfeeds' || $menu->query['view'] === 'newsfeed' || $id != $this->category->id))
+		if ($menu && ($menu->query['option'] !== 'com_assistance' || $menu->query['view'] === 'newsfeed' || $id != $this->category->id))
 		{
 			$path = array(array('title' => $this->category->title, 'link' => ''));
 			$category = $this->category->getParent();
 
-			while (($menu->query['option'] !== 'com_newsfeeds' || $menu->query['view'] === 'newsfeed' || $id != $category->id) && $category->id > 1)
+			while (($menu->query['option'] !== 'com_assistance' || $menu->query['view'] === 'newsfeed' || $id != $category->id) && $category->id > 1)
 			{
-				$path[] = array('title' => $category->title, 'link' => NewsfeedsHelperRoute::getCategoryRoute($category->id));
+				$path[] = array('title' => $category->title, 'link' => AssistanceHelperRoute::getCategoryRoute($category->id));
 				$category = $category->getParent();
 			}
 

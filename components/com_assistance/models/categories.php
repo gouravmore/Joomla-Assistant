@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_newsfeeds
+ * @subpackage  com_assistance
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -16,21 +16,21 @@ use Joomla\Registry\Registry;
  *
  * @since  1.6
  */
-class NewsfeedsModelCategories extends JModelList
+class AssistanceModelCategories extends JModelList
 {
 	/**
 	 * Model context string.
 	 *
 	 * @var		string
 	 */
-	public $_context = 'com_newsfeeds.categories';
+	public $_context = 'com_assistance.categories';
 
 	/**
 	 * The category context (allows other extensions to derived from this model).
 	 *
 	 * @var		string
 	 */
-	protected $_extension = 'com_newsfeeds';
+	protected $_extension = 'com_assistance';
 
 	private $_parent = null;
 
@@ -109,7 +109,7 @@ class NewsfeedsModelCategories extends JModelList
 
 			$options = array();
 			$options['countItems'] = $params->get('show_cat_items_cat', 1) || !$params->get('show_empty_categories_cat', 0);
-			$categories = JCategories::getInstance('Newsfeeds', $options);
+			$categories = JCategories::getInstance('Assistance', $options);
 			$this->_parent = $categories->get($this->getState('filter.parentId', 'root'));
 
 			if (is_object($this->_parent))

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_newsfeeds
+ * @subpackage  com_assistance
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -21,14 +21,14 @@ defined('_JEXEC') or die;
 				<li<?php echo $class; ?>>
 					<?php $class = ''; ?>
 					<span class="item-title">
-						<a href="<?php echo JRoute::_(NewsfeedsHelperRoute::getCategoryRoute($child->id)); ?>">
+						<a href="<?php echo JRoute::_(AssistanceHelperRoute::getCategoryRoute($child->id)); ?>">
 							<?php echo $this->escape($child->title); ?>
 						</a>
 					</span>
 					<?php if ($this->params->get('show_subcat_desc') == 1) : ?>
 						<?php if ($child->description) : ?>
 							<div class="category-desc">
-								<?php echo JHtml::_('content.prepare', $child->description, '', 'com_newsfeeds.category'); ?>
+								<?php echo JHtml::_('content.prepare', $child->description, '', 'com_assistance.category'); ?>
 							</div>
 						<?php endif; ?>
 					<?php endif; ?>

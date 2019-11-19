@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_newsfeeds
+ * @subpackage  com_assistance
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.5
  */
-class NewsfeedsViewCategories extends JViewCategories
+class AssistanceViewCategories extends JViewCategories
 {
 	/**
 	 * Language key for default page heading
@@ -28,5 +28,5 @@ class NewsfeedsViewCategories extends JViewCategories
 	 * @var    string  The name of the extension for the category
 	 * @since  3.2
 	 */
-	protected $extension = 'com_newsfeeds';
+	protected $extension = 'com_assistance';
 }
